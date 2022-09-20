@@ -25,12 +25,12 @@ services:
     stdin_open: true
     restart: always
     volumes:
-       - /etc/onlyoffice
-       - /var/www/onlyoffice/Data
-       - /var/log/onlyoffice
-       - /var/lib/onlyoffice/documentserver/App_Data/cache/files
-       - /var/www/onlyoffice/documentserver-example/public/files
-       - /usr/share/fonts
+       - /onlyoffice-documentserver-data:/etc/onlyoffice
+       - /onlyoffice-documentserver-data:/var/www/onlyoffice/Data
+       - /onlyoffice-documentserver-data:/var/log/onlyoffice
+       - /onlyoffice-documentserver-data:/var/lib/onlyoffice/documentserver/App_Data/cache/files
+       - /onlyoffice-documentserver-data:/var/www/onlyoffice/documentserver-example/public/files
+       - /onlyoffice-documentserver-data:/usr/share/fonts
        
   onlyoffice-documentserver:
     image: *ds-image
@@ -106,3 +106,4 @@ services:
 
 volumes:
   postgresql_data:
+  onlyoffice-documentserver-data:
